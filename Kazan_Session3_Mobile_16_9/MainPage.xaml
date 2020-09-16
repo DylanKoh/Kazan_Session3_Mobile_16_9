@@ -13,6 +13,7 @@
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" Padding="5">
                             <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding PMTaskID}" IsVisible="false"/>
                                 <Label Text="{Binding Asset}"/>
                                 <Label Text="{Binding TaskName}"/>
                                 <Label Text="{Binding TaskTypeAndValue}"/>
@@ -25,8 +26,8 @@
         </ListView>
         <Button Text="Add" x:Name="btnAdd" Clicked="btnAdd_Clicked"/>
         <Grid Padding="5">
-            <Picker x:Name="pAssetName" Title="Asset Name" SelectedIndexChanged="pAssetName_SelectedIndexChanged"/>
-            <Picker x:Name="pTask" Title="Select Task" SelectedIndexChanged="pTask_SelectedIndexChanged" Grid.Column="1"/>
+            <Picker x:Name="pAssetName" Title="Asset Name" SelectedIndexChanged="pAssetName_SelectedIndexChanged" HeightRequest="60" FontSize="Small"/>
+            <Picker x:Name="pTask" Title="Select Task" SelectedIndexChanged="pTask_SelectedIndexChanged" Grid.Column="1" FontSize="Small"/>
             <Button Text="Clear Filters" x:Name="btnClear" Clicked="btnClear_Clicked" Grid.Column="2"/>
         </Grid>
     </StackLayout>
