@@ -68,5 +68,11 @@ namespace Kazan_Session3_Mobile_16_9
             public bool TaskDone { get; set; }
         }
 
+        public class AssetList
+        {
+            public long AssetID { get; set; }
+            public string AssetName { get; set; }
+        }
+
     }
 }

@@ -158,9 +158,9 @@ namespace Kazan_Session3_Mobile_16_9
             await LoadPickers();
         }
 
-        private void btnAdd_Clicked(object sender, EventArgs e)
+        private async void btnAdd_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new RegisteringNewPM());
         }
 
     }

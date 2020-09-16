@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kazan_Session3_Mobile_16_9.RegisteringNewPM"
+             Title="Create PM">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Picker x:Name="pTask" Title="Task Name" SelectedIndexChanged="pTask_SelectedIndexChanged"/>
+            <Grid Padding="5">
+                <Picker x:Name="pAssetName" Title="Asset Name" HeightRequest="90" FontSize="Small"/>
+                <Button Grid.Column="1" Text="Add to list" x:Name="btnAdd" Clicked="btnAdd_Clicked" FontSize="Small"/>
+            </Grid>
+            <ListView x:Name="lvAssets" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding ="5">
+                                <Label Text="{Binding AssetID}" IsVisible="false"/>
+                                <Label Text="{Binding AssetName}"/>
+                                <Button Text="Remove" Clicked="Button_Clicked"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Padding="5">
+                <Picker x:Name="pScheduleModel" Title="Schedule Model" SelectedIndexChanged="pScheduleModel_SelectedIndexChanged" HeightRequest="90" Grid.ColumnSpan="3" FontSize="Small"/>
+                <DatePicker x:Name="dpStart" Grid.Row="1" IsVisible="false" FontSize="Small"/>
+                <DatePicker x:Name="dpEnd" Grid.Row="1" Grid.Column="1" IsVisible="false" FontSize="Small"/>
+                <Entry Keyboard="Numeric" x:Name="entryReminder" Placeholder="Reminder/KM" Grid.Row="1" IsVisible="false" FontSize="Small"/>
+                <Entry Keyboard="Numeric" x:Name="entryStart" Placeholder="Start Range" Grid.Row="2" IsVisible="false" FontSize="Small"/>
+                <Entry Keyboard="Numeric" x:Name="entryEnd" Placeholder="End Range" Grid.Row="2" Grid.Column="1" IsVisible="false" FontSize="Small"/>
+            </Grid>
+            <Grid Padding="5">
+                <Button Text="Submit" x:Name="btnSubmit" Clicked="btnSubmit_Clicked" FontSize="Small" HeightRequest="90"/>
+                <Button Text="Cancel" x:Name="btnCancel" Clicked="btnCancel_Clicked" FontSize="Small" Grid.Column="1"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
