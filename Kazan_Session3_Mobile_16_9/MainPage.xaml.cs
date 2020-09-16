@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -74,8 +75,32 @@ namespace Kazan_Session3_Mobile_16_9
             await LoadData(dpActive.Date);
         }
 
-        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
+            var client = new WebApi();
+            var checkBox = (CheckBox)sender;
+            var parentLayout = (StackLayout)checkBox.Parent;
+            var childToTake = (StackLayout)parentLayout.Children[0];
+            var PMIDLabel = ((Label)childToTake.Children[0]).Text;
+            var response = "";
+
+            if (e.Value == true)
+            {
+                response = await client.PostAsync(null, $"PMTasks/UpdateDone?PMID={PMIDLabel}&changedState={e.Value}");
+            }
+            else
+            {
+                response = await client.PostAsync(null, $"PMTasks/UpdateNotDone?PMID={PMIDLabel}&changedState={e.Value}");
+            }
+            if (response == "\"Completed Update!\"")
+            {
+                await DisplayAlert("Update PM Task", "Completed Update!", "Ok");
+                await LoadData(dpActive.Date);
+            }
+
+
+
+
 
         }
 
@@ -137,5 +162,7 @@ namespace Kazan_Session3_Mobile_16_9
         {
 
         }
+
     }
 }
+
