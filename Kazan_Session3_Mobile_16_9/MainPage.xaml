@@ -11,7 +11,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="5">
+                        <StackLayout Orientation="Horizontal" Padding="5" BackgroundColor="{Binding bgColour}">
                             <StackLayout Orientation="Vertical">
                                 <Label Text="{Binding PMTaskID}" IsVisible="false"/>
                                 <Label Text="{Binding Asset}"/>

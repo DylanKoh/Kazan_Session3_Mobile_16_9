@@ -66,6 +66,7 @@ namespace Kazan_Session3_Mobile_16_9
             public string TaskName { get; set; }
             public string TaskTypeAndValue { get; set; }
             public bool TaskDone { get; set; }
+            public string bgColour { get; set; }
         }
 
         public class AssetList
