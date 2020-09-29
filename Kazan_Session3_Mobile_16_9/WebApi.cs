@@ -8,7 +8,7 @@ namespace Kazan_Session3_Mobile_16_9
 {
     public class WebApi
     {
-        string baseAddress = "http://10.0.2.2:55423/";
+        string baseAddress = "http://10.0.2.2/";
 
         public async Task<string> PostAsync(string data, string extSite)
         {
